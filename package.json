@@ -1,5 +1,6 @@
 {
-  "name": "auth-boiler-change-each-use",
+  "name": "bartender",
+  "repository": "https://github.com/brandiw/bartender.git",
   "version": "1.0.0",
   "description": "This is a generic template for future project baselines. It contains working auth and a user model and database",
   "main": "index.js",

@@ -5,7 +5,7 @@ let express = require('express')
 let router = express.Router()
 
 // Reference the models
-let db = require('../models')
+// let db = require('../models')
 
 // GET /profile
 router.get('/', (req, res) => {
