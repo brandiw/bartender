@@ -5,11 +5,18 @@ let express = require('express')
 let router = express.Router()
 
 // Reference the models
-// let db = require('../models')
+let db = require('../models')
 
 // GET /drinks
 router.get('/', (req, res) => {
-  res.render('drinks/index')
+  db.drink.findAll()
+  .then(drinks => {
+    res.render('drinks/index', { drinks })
+  })
+  .catch(err => {
+    console.log(err)
+    res.render('404')
+  })
 })
 
 // POST /drinks
