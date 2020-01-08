@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {})
 
   drinks_ingredients.associate = function(models) {
-    // associations can be defined here
+    models.drinks_ingredients.belongsTo(models.drink)
+    models.drinks_ingredients.belongsTo(models.ingredient)
   }
 
   return drinks_ingredients

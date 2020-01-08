@@ -31,7 +31,54 @@ router.get('/new', (req, res) => {
 
 // GET /drinks/:id
 router.get('/:id', (req, res) => {
-  res.render('drinks/show')
+  db.drink.findOne({
+    where: { id: req.params.id },
+    include: [{
+      model: db.recipe,
+      include: [db.ingredient]
+    }]
+  })
+  .then(drink => {
+    res.render('drinks/show', { drink })
+  })
+  .catch(err => {
+    console.log(err)
+    res.render('404')
+  })
+})
+
+// GET /drinks/:id/recipes/new
+router.get('/:id/recipes/new', (req, res) => {
+  db.drink.findByPk(req.params.id)
+  .then(drink => {
+    db.ingredient.findAll()
+    .then(ingredients => {
+      res.render('recipes/new', {
+        drink,
+        ingredients
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.render('404')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.render('404')
+  })
+})
+
+// POST /drinks/:id/recipes
+router.post('/:id/recipes', (req, res) => {
+  console.log(req.body)
+  db.recipe.bulkCreate(req.body.results)
+  .then(() => {
+    res.send({ message: 'ok' })
+  })
+  .catch(err => {
+    res.status(503).send({ message: 'ok' })
+  })
 })
 
 // Export the routes from this file

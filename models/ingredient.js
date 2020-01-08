@@ -9,9 +9,12 @@ module.exports = (sequelize, DataTypes) => {
 
   ingredient.associate = function(models) {
     // associations can be defined here
-    models.ingredient.belongsToMany(models.drink, {
-      through: models.drinks_ingredients
-    })
+    // models.ingredient.belongsToMany(models.drink, {
+    //   as: 'Choices',
+    //   through: 'drinks_ingredients',
+    //   onDelete: 'CASCADE'
+    // })
+    models.ingredient.hasMany(models.recipe)
   }
 
   return ingredient

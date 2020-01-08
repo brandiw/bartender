@@ -14,10 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {})
 
   drink.associate = function(models) {
-    // associations can be defined here
-    models.drink.belongsToMany(models.ingredient, {
-      through: models.drinks_ingredients
-    })
+    models.drink.hasMany(models.recipe)
   }
 
   return drink
