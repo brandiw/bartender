@@ -1,4 +1,4 @@
-<h1 class="center blue-text">Add a New Drink</h1>
+<h1 class="center">Add a New Drink</h1>
 
 <div class="row">
   <form action="/drinks" method="POST" class="col s12">
@@ -21,9 +21,19 @@
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s5">
+      <div class="input-field col s6">
         <input id="glass" type="text" name="glass" class="validate">
         <label for="glass">Glass Type</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="glassIcon" type="url" name="glassIcon" class="validate">
+        <label for="glassIcon">Glass Icon</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="image" type="url" name="image" class="validate">
+        <label for="image">Drink Image</label>
       </div>
       <div class="input-field col s2">
         <label for="alcohol">
@@ -31,7 +41,7 @@
           <span>Contains Alcohol?</span>
         </label>
       </div>
-      <div class="range-field col s5">
+      <div class="range-field col s4">
         <input type="range" id="rating" name="rating" min="0" max="5" step="0.5" value="4" />
         <label for="rating">Star Rating</label>
       </div>

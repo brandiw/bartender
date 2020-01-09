@@ -1,3 +1,32 @@
+body {
+  background-color: #ddd;
+}
+
 .closeable {
   cursor: pointer;
 }
+
+.icon {
+  width: 70px;
+  height: 70px;
+  margin-top: 1em;
+}
+
+h1 {
+  color: #90a4ae !important;
+  font-size: 3em;
+}
+
+.my-carousel {
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+.my-carousel img {
+  max-height: 300px;
+  width: auto;
+}
+
+/*.slick-arrow {
+  background-color: black;
+}*/

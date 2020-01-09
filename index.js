@@ -33,6 +33,7 @@ app.use((req, res, next) => {
 
 // Include routes from controllers
 app.use('/drinks', require('./controllers/drinks'))
+app.use('/ingredients', require('./controllers/ingredients'))
 
 // Make a home route: GET /
 app.get('/', (req, res) => {

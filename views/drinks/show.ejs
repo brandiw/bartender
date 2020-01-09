@@ -1,31 +1,42 @@
-<h1 class="center blue-text">
-  Drink Details: <%= drink.name %>
+<h1 class="center">
+  <%= drink.name %>
 </h1>
 
-<p class="center"><%= drink.description %></p>
+<p class="center"><em><%= drink.description %></em></p>
 
 <div class="row">
-  <div class="col s12 m6">
-    <div class="card blue-grey lighten-1">
+  <div class="col s12 m7">
+    <div class="card blue-grey lighten-2">
       <div class="card-content white-text">
         <span class="card-title">Directions</span>
         <p><%= drink.directions %></p>
-        <p><strong>Glass:</strong> Put it in a <%= drink.glass %> glass!</p>
         <hr>
-        <h4>Ingredients</h4>
-        <ul>
-          <% if (!drink.recipes || !drink.recipes.length) { %>
-            <p>No recipe added yet!</p>
-            <a href="/drinks/<%= drink.id %>/recipes/new" class="btn">
-              <i class="material-icons add">add</i>
-              Add Recipe
-            </a>
-          <% } %>
-          <% drink.recipes.forEach(di => { %>
-            <li><em><%= di.amount %></em> <%= di.ingredient.name %> (<%= di.ingredient.type %>)</li>
-          <% }) %>
-        </ul>
+        <div class="row">
+          <div class="col s12 m7">
+            <p><strong>Ingredients</strong></p>
+            <ul>
+              <% if (!drink.recipes || !drink.recipes.length) { %>
+                <p>No recipe added yet!</p>
+                <a href="/drinks/<%= drink.id %>/recipes/new" class="btn">
+                  <i class="material-icons add">add</i>
+                  Add Recipe
+                </a>
+              <% } %>
+              <% drink.recipes.forEach(di => { %>
+                <li><em><%= di.amount %></em> <%= di.ingredient.name %> (<%= di.ingredient.type %>)</li>
+              <% }) %>
+            </ul>
+          </div>
+          <div class="col s12 m5">
+            <p><strong>Preparation</strong></p>
+            <img src="<%= drink.glassIcon %>" alt="<%= drink.glass %>" class="icon">
+            <p><%= drink.glass %> glass!</p>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="col s12 m5">
+    <img src="<%= drink.image %>" alt="<%= drink.name %>" class="responsive-img">
   </div>
 </div>

@@ -1,8 +1,5 @@
-// Require needed modules
-let express = require('express')
-
 // Declare an express router
-let router = express.Router()
+let router = require('express').Router()
 
 // Reference the models
 let db = require('../models')
