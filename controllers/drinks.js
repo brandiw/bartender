@@ -18,7 +18,14 @@ router.get('/', (req, res) => {
 
 // POST /drinks
 router.post('/', (req, res) => {
-  res.send(req.body)
+  db.drink.create(req.body)
+  .then(() => {
+    res.redirect('/drinks')
+  })
+  .catch(err => {
+    console.log(err)
+    res.render('404')
+  })
 })
 
 // GET /drinks/new

@@ -1,0 +1,26 @@
+<h1 class="center">Ingredients List</h1>
+
+<table class="striped">
+  <thead class="blue-grey lighten-3">
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Common Drinks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% ingredients.forEach(i => { %>
+      <% let drinkSet = new Set() %>
+      <% i.recipes.forEach(r => { %>
+        <% drinkSet.add(r.drink.name) %>
+      <% }) %>
+      <tr>
+        <td><%= i.name %></td>
+        <td><%= i.type %></td>
+        <td><%= i.description %></td>
+        <td><%= Array.from(drinkSet).join(', ') %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

@@ -6,7 +6,19 @@ let db = require('../models')
 
 // GET /ingredients
 router.get('/', (req, res) => {
-  res.send('hello')
+  db.ingredient.findAll({
+    include: [{
+      model: db.recipe,
+      include: [db.drink]
+    }]
+  })
+  .then(ingredients => {
+    res.render('ingredients/index', { ingredients })
+  })
+  .catch(err => {
+    console.log(err)
+    res.render('404')
+  })
 })
 
 // Export the routes from this file
