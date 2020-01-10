@@ -1,4 +1,4 @@
-# Node/Express/PostgreSQL Boilerplate
+# Node/Express/PostgreSQL 
 
 Coming soon!
 
